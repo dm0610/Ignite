@@ -19,15 +19,33 @@
 ##  copy:
 ##    src: files/java.sh
 ##    dest: /etc/profile.d/
-- name: download apache ignite
-  unarchive:
-    src: http://mirror.linux-ia64.org/apache//ignite/{{ apache_ignite_version }}/apache-ignite-{{ apache_ignite_version }}-bin.zip
-    dest: /usr/lib/
-    remote_src: no
+##- name: download apache ignite
+##  unarchive:
+##    src: http://mirror.linux-ia64.org/apache//ignite/{{ apache_ignite_version }}/apache-ignite-{{ apache_ignite_version }}-bin.zip
+##   dest: /usr/lib/
+##    remote_src: no
 - name: create ln
   file:
     path: /usr/lib/apache-ignite
     src: /usr/lib/apache-ignite-{{ apache_ignite_version }}-bin
     state: link
-    
-
+- name: create startIgnite.sh
+  file:
+    path: /usr/lib/apache-ignite/startIgnite.sh
+    src: startIgnite.sh
+    mode: '0777'
+- name: create production-config.xml
+  file:
+    path: /usr/lib/apache-ignite/config/production-config.xml
+    src: production-config.xml
+- name: create ignite.service
+  file:
+    path: /lib/systemd/system/ignite.service
+    src: ignite.service
+- name: daemon_reload
+  systemd:
+    daemon_reload: yes
+- name: reload service httpd, in all cases
+  systemd:
+    name: ignite
+    state: reloaded

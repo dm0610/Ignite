@@ -1,0 +1,22 @@
+[Unit]
+Description=Apache Ignite Service
+After=network.target
+
+[Service]
+WorkingDirectory=/usr/lib/apache-ignite
+User=root
+PrivateDevices=yes
+ProtectSystem=full
+Type=simple
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=10
+ExecStart=/usr/lib/apache-ignite/startIgnite.sh
+SyslogIdentifier=Ignite
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+Alias=ignite.service
