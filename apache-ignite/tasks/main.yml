@@ -33,15 +33,18 @@
   file:
     path: /usr/lib/apache-ignite/startIgnite.sh
     src: startIgnite.sh
+    state: present
     mode: '0777'
 - name: create production-config.xml
   file:
     path: /usr/lib/apache-ignite/config/production-config.xml
     src: production-config.xml
+    state: present
 - name: create ignite.service
   file:
     path: /lib/systemd/system/ignite.service
     src: ignite.service
+    state: present
 - name: daemon_reload
   systemd:
     daemon_reload: yes
