@@ -1,0 +1,34 @@
+---
+# install depends
+- name: install unzip
+  package:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - zip
+    - unzip
+    - java-11-openjdk
+    
+#- name: install openjdk
+#  package: 
+#    name: java-11-openjdk
+#    state: present
+- name: java_home
+  copy:
+    src: files/java.sh
+    dest: /etc/profile.d/
+- name: create ignite directory
+  file:
+    dest: /usr/lib/ignite
+    state: directory
+- name: download apache ignite
+  unarchive:
+    src: http://mirror.linux-ia64.org/apache//ignite/2.7.5/apache-ignite-2.7.5-bin.zip
+    dest: /usr/lib/ignite
+    remote_src: yes
+- name: Ignite Home
+  template:
+    src: ignite.j2
+    dest: /etc/profile.d/ignite.sh
+    
+

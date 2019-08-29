@@ -1,0 +1,6 @@
+---
+- name: install dependences
+  hosts: apache-ignite
+  become: yes
+  roles:
+    - apache-ignite
