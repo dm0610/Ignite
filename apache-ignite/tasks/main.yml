@@ -29,6 +29,5 @@
     path: /usr/lib/apache-ignite
     src: /usr/lib/apache-ignite-"{{ apache-ignite-version }}"-bin
     state: link
--
     
 
