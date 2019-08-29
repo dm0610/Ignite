@@ -22,7 +22,7 @@
 ##- name: download apache ignite
 ##  unarchive:
 ##    src: http://mirror.linux-ia64.org/apache//ignite/{{ apache_ignite_version }}/apache-ignite-{{ apache_ignite_version }}-bin.zip
-##   dest: /usr/lib/
+##    dest: /usr/lib/
 ##    remote_src: no
 - name: create ln
   file:
@@ -32,19 +32,18 @@
   file:
     src: files//startIgnite.sh
     path: /usr/lib/apache-ignite/startIgnite.sh
-    state: present
+    state: file
     mode: '0777'
 - name: create production-config.xml
   file:
     src: files/production-config.xml
     path: /usr/lib/apache-ignite/config/production-config.xml
-    state: present
+    state: file
 - name: create ignite.service
   file:
     src: files/ignite.service
     path: /lib/systemd/system/ignite.service
-    
-    state: present
+    state: file
 - name: daemon_reload
   systemd:
     daemon_reload: yes
