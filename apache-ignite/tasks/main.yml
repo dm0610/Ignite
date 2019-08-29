@@ -29,21 +29,21 @@
     path: /usr/lib/apache-ignite
     state: link
 - name: create startIgnite.sh
-  file:
+  copy:
     src: files//startIgnite.sh
-    path: /usr/lib/apache-ignite/startIgnite.sh
-    state: file
+    dest: /usr/lib/apache-ignite/startIgnite.sh
+    state: present
     mode: '0777'
 - name: create production-config.xml
-  file:
+  copy:
     src: files/production-config.xml
-    path: /usr/lib/apache-ignite/config/production-config.xml
-    state: file
+    dest: /usr/lib/apache-ignite/config/production-config.xml
+    state: present
 - name: create ignite.service
-  file:
+  copy:
     src: files/ignite.service
-    path: /lib/systemd/system/ignite.service
-    state: file
+    dest: /lib/systemd/system/ignite.service
+    state: present
 - name: daemon_reload
   systemd:
     daemon_reload: yes
