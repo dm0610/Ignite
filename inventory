@@ -1,0 +1,7 @@
+[ignite]
+centos7-1 ansible_host=192.168.1.35
+centos7-2 ansible_host=192.168.1.36
+
+[ignite:vars]
+ ansible_user=user
+ ansible_sudo_pass=1qaz2wsx

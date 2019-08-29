@@ -1,0 +1,6 @@
+- name: ignite install and update
+  hosts: ignite
+  become: yes
+  tasks:
+    - name: ping hosts
+      ping:
