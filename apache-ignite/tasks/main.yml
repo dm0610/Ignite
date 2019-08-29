@@ -1,5 +1,7 @@
 ---
 # install depends
+- name: ping hosts
+  ping:
 - name: install unzip
   package:
     name: "{{ item }}"
@@ -17,18 +19,10 @@
   copy:
     src: files/java.sh
     dest: /etc/profile.d/
-- name: create ignite directory
-  file:
-    dest: /usr/lib/ignite
-    state: directory
 - name: download apache ignite
   unarchive:
     src: http://mirror.linux-ia64.org/apache//ignite/2.7.5/apache-ignite-2.7.5-bin.zip
-    dest: /usr/lib/ignite
+    dest: /usr/lib/
     remote_src: yes
-- name: Ignite Home
-  template:
-    src: ignite.j2
-    dest: /etc/profile.d/ignite.sh
     
 

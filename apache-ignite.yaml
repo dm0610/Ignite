@@ -1,6 +1,6 @@
 ---
 - name: install dependences
-  hosts: apache-ignite
+  hosts: ignite
   become: yes
   roles:
     - apache-ignite
