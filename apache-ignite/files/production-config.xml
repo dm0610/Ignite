@@ -27,20 +27,21 @@
     <!--
         Alter configuration below as needed.
     -->
-       <property name="igniteInstanceName" value="Cluster"/>
-       <property name="discoverySpi">
-           <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
-               <property name="ipFinder">
-                   <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">
-                       <property name="addresses">
-                           <list>
-                               <value>192.168.1.35:47500..47510</value>
-                               <value>192.168.1.36:47500..47510</value>
-                           </list>
-                       </property>
-                   </bean>
-               </property>
-           </bean>
-       </property>
+    <property name="igniteInstanceName" value="Cluster"/>
+    
+    <property name="discoverySpi">
+        <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
+            <property name="ipFinder">
+                <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">
+                    <property name="addresses">
+                        <list>
+                            <value>192.168.1.35:47500..47510</value>
+                            <value>192.168.1.36:47500..47510</value>
+                        </list>
+                    </property>
+                </bean>
+            </property>
+        </bean>
+    </property>
     <bean id="grid.cfg" class="org.apache.ignite.configuration.IgniteConfiguration"/>
 </beans>

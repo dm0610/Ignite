@@ -41,10 +41,8 @@
   copy:
     src: files/ignite.service
     dest: /lib/systemd/system/ignite.service
-- name: daemon_reload
+- name: restart service ignite on centos, in all cases, also issue daemon-reload to pick up config changes
   systemd:
+    state: restarted
     daemon_reload: yes
-- name: reload service httpd, in all cases
-  systemd:
     name: ignite
-    state: reloaded
