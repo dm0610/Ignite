@@ -27,23 +27,23 @@
 - name: create ln
   file:
     path: /usr/lib/apache-ignite
-    src: /usr/lib/apache-ignite-{{ apache_ignite_version }}-bin
     state: link
 - name: create startIgnite.sh
   file:
+    src: files//startIgnite.sh
     path: /usr/lib/apache-ignite/startIgnite.sh
-    src: startIgnite.sh
     state: present
     mode: '0777'
 - name: create production-config.xml
   file:
+    src: files/production-config.xml
     path: /usr/lib/apache-ignite/config/production-config.xml
-    src: production-config.xml
     state: present
 - name: create ignite.service
   file:
+    src: files/ignite.service
     path: /lib/systemd/system/ignite.service
-    src: ignite.service
+    
     state: present
 - name: daemon_reload
   systemd:
