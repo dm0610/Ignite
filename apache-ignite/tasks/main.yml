@@ -1,24 +1,24 @@
 ---
 # install depends
-- name: ping hosts
-  ping:
-- name: install unzip
-  package:
-    name: "{{ item }}"
-    state: latest
-  loop:
-    - zip
-    - unzip
-    - java-11-openjdk
+##- name: ping hosts
+##  ping:
+##- name: install unzip
+##  package:
+##    name: "{{ item }}"
+##    state: latest
+##  loop:
+##   - zip
+##    - unzip
+##    - java-11-openjdk
     
 #- name: install openjdk
 #  package: 
 #    name: java-11-openjdk
 #    state: present
-- name: java_home
-  copy:
-    src: files/java.sh
-    dest: /etc/profile.d/
+##- name: java_home
+##  copy:
+##    src: files/java.sh
+##    dest: /etc/profile.d/
 - name: download apache ignite
   unarchive:
     src: http://mirror.linux-ia64.org/apache//ignite/{{ apache-ignite-version }}/apache-ignite-{{ apache-ignite-version }}-bin.zip
