@@ -21,13 +21,14 @@
     dest: /etc/profile.d/
 - name: download apache ignite
   unarchive:
-    src: http://mirror.linux-ia64.org/apache//ignite/"{{apache-ignite-version}}"/apache-ignite-"{{apache-ignite-version}}"-bin.zip
+    src: http://mirror.linux-ia64.org/apache//ignite/"{{apache-ignite-version}}"/apache-ignite-"{{ apache-ignite-version }}"-bin.zip
     dest: /usr/lib/
     remote_src: yes
 - name: create ln
   file:
     path: /usr/lib/apache-ignite
-    src: /usr/lib/apache-ignite-"{{apache-ignite-version}}"-bin
+    src: /usr/lib/apache-ignite-"{{ apache-ignite-version }}"-bin
     state: link
+-
     
 
