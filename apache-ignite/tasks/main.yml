@@ -23,7 +23,7 @@
   unarchive:
     src: http://mirror.linux-ia64.org/apache//ignite/{{ apache_ignite_version }}/apache-ignite-{{ apache_ignite_version }}-bin.zip
     dest: /usr/lib/
-    remote_src: yes
+    remote_src: no
 - name: create ln
   file:
     path: /usr/lib/apache-ignite
