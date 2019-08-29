@@ -32,18 +32,15 @@
   copy:
     src: files//startIgnite.sh
     dest: /usr/lib/apache-ignite/startIgnite.sh
-    state: present
     mode: '0777'
 - name: create production-config.xml
   copy:
     src: files/production-config.xml
     dest: /usr/lib/apache-ignite/config/production-config.xml
-    state: present
 - name: create ignite.service
   copy:
     src: files/ignite.service
     dest: /lib/systemd/system/ignite.service
-    state: present
 - name: daemon_reload
   systemd:
     daemon_reload: yes
